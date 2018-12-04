@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} {{ status }} - {{ message }}{% endblock %}
+
+{% block content %}
+  <h1>{{ title }} {{ status }} - {{ message }}</h1>
+  <p>{{ timestamp }}</p>
+  <p>{{ error }} (status={{ status }}, message={{ message }})</p>
+{% endblock %}
