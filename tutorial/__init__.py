@@ -35,7 +35,7 @@ def inject_dict_for_all_templates():
 
 @app.route('/node_modules/<path:filename>')
 def node_modules(filename):
-    return send_from_directory(Config.NODE_MODULES_DIR, filename)
+    return send_from_directory(app.config["NODE_MODULES_DIR"], filename)
 
 
 @app.errorhandler(404)
