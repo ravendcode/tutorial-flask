@@ -3,11 +3,15 @@
 ## Features
 
 * Flask
-* MariaDB
+* SQLAlchemy (MariaDB)
+* Jinja
+* Bootstrap 4
 * Auth
 
 ## Usage
 
+* `yarn install`
 * Edit `.env`
-* make
+* Edit `Makefile`
+* `make`
 * http://localhost:8000

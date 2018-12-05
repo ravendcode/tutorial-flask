@@ -4,10 +4,20 @@ from datetime import datetime
 import pytz
 from flask import Flask, render_template, request, jsonify
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-RESOURCES_DIR = os.path.join(BASE_DIR, 'resources')
+from config import Config
 
-app = Flask(__name__, root_path=RESOURCES_DIR)
+app = Flask(__name__, root_path=Config.RESOURCES_DIR)
+
+app.config.from_object(Config)
+
+# @app.before_request
+# def before_request():
+#     g.user = current_user
+#     locale = get_locale()
+#     if not locale:
+#         g.locale = app.config['DEFAULT_LOCALE']
+#     else:
+#         g.locale = locale
 
 
 @app.context_processor
@@ -24,6 +34,3 @@ def inject_dict_for_all_templates():
 # routes
 from tutorial import erorrs
 from tutorial import routes
-
-if __name__ == '__main__':
-    app.run()

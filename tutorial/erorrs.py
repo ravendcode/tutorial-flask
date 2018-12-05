@@ -7,7 +7,7 @@ from tutorial import app
 
 
 @app.errorhandler(404)
-def not_found(error):
+def not_found_error(error):
     error = {
         'timestamp': datetime.now(tz=pytz.utc).isoformat(),
         'status': 404,
@@ -19,3 +19,8 @@ def not_found(error):
         return jsonify(error), 404
     # error['timestamp'] = datetime.now()
     return render_template('error.html', title='Error Page', **error), 404
+
+# @app.errorhandler(500)
+# def internal_error(error):
+#     db.session.rollback()
+#     return render_template('errors/500.html'), 500

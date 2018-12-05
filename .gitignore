@@ -164,5 +164,7 @@ typings/
 
 .idea/
 
+play.py
+
 # dotenv environment variables file
 # .env

@@ -9,8 +9,33 @@
   <meta name="robots" content="all">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <title>{{ app.name|safe }} | {% block title %}Index{% endblock %}</title>
+  {% block css %}
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  {% endblock %}
 </head>
 <body>
+<div class="container">
+  <div>
+    {{ app.name }}:
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('login') }}">Login</a>
+  </div>
+  <hr>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
   {% block content %}{% endblock %}
+</div>
+{% block js %}
+  <script src="/node_modules/jquery/dist/jquery.slim.js"></script>
+  <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+{% endblock %}
 </body>
 </html>
